@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Metamath Blueprints</title>
+		<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/metamath.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&family=Bitter:wght@200;500;700&display=swap">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>	
+		<script type="text/x-mathjax-config">
+			MathJax = {
+				options: {
+					renderActions: {
+						find: [10, function (doc) {
+							for (const node of document.querySelectorAll('.math.math-inline')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], false);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+							for (const node of document.querySelectorAll('.math.math-display')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], true);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+						}, '']
+					}
+				}
+			}
+		</script>
+		{{header}}
+	</head>
+	<body>
+		<h1><logo/>Metamath Blueprints</h1>
+		<hr />
+		<div class="container">
+			{{> nav}}
+			<div class="contents">
+				<p>{{body}}</p>
+				<hr />
+			</div>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+[package]
+name = "metamath-blueprints-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+matter = "0.1.0-alpha4"
+serde = { version = "1.0.145", features = ["derive"] }
+toml = { version = "0.8.12", features = ["parse"] }
+pulldown-cmark = { git = "https://github.com/pulldown-cmark/pulldown-cmark.git", branch = "branch_0.11" }
+handlebars = "5.1.2"
+#layout-rs = "0.1.2"
+layout-rs = { git = "https://github.com/tirix/layout.git", branch = "master"}
+clap = { version = "4.5.4", features = ["cargo"] }
+regex = "1.10.4"
+thiserror = "1.0"
+colored = "2"
+notify = "6.1.1"

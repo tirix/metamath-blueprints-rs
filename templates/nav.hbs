@@ -1,0 +1,21 @@
+<aside class="sidebar">
+    <a class="docs-link t1 active" href="{{#if project}}..{{/if}}">Metamath Blueprints</a>
+    <ul class="toc">
+        {{#if nav.projects}}
+            <ul>
+                {{#each nav.projects}}
+                    <li>
+                        <a class="docs-link t2{{#if (eq ../project.name name)}} active{{/if}}" href="{{#if ../project}}../{{/if}}{{name}}">{{name}}</a>
+                        {{#if (eq ../project.name name)}}
+                            <ul>
+                                {{#each items}}
+                                    <li><a class="docs-link t2{{#if (eq ../../item.name name)}} active{{/if}}" href="../{{../name}}/{{name}}.html">{{name}}</a></li>
+                                {{/each}}
+                            </ul>
+                        {{/if}}
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </ul>
+</aside>
