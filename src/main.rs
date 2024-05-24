@@ -4,6 +4,7 @@ use colored::Colorize;
 use handlebars::Handlebars;
 use notify::{RecursiveMode, Watcher};
 use pulldown_cmark::Options;
+use std::process::exit;
 use std::sync::OnceLock;
 use std::{
     fs::{self, create_dir_all},
@@ -58,9 +59,11 @@ fn main() {
     match action(path) {
         Ok(()) => {
             println!("{}", "Complete".green());
+            exit(0);
         }
         Err(e) => {
             println!("{}: {}", "failed".red(), e);
+            exit(-1);
         }
     }
 }
